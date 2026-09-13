@@ -1,1 +1,651 @@
 
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio — Iqbal Anggito</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lucida+Grande&family=Georgia&family=Helvetica+Neue&display=swap" rel="stylesheet">
+    <style>
+        /* ==========================================
+           SKEUOMORPHISM THEME
+           ========================================== */
+        :root {
+            --felt: #2b5a4a;
+            --felt-dark: #1e4034;
+            --leather: #6b4423;
+            --leather-light: #8a5a30;
+            --paper: #f5f0e1;
+            --paper-2: #ebe3d0;
+            --wood: #5a3a1e;
+            --wood-light: #7a5230;
+            --metal-1: #f0f0f0;
+            --metal-2: #c4c4c4;
+            --metal-3: #8a8a8a;
+            --ink: #2a2a2a;
+            --ink-soft: #5a5a5a;
+            --brass: #c9a961;
+            --brass-dark: #8a7338;
+            --red-led: #d43b2c;
+            --green-led: #4a9d5f;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Helvetica Neue', 'Lucida Grande', Arial, sans-serif;
+            color: var(--ink);
+            line-height: 1.6;
+            font-size: 16px;
+            min-height: 100vh;
+            padding: 40px 20px;
+            background-color: #3a3a3a;
+            background-image:
+                radial-gradient(ellipse at top, rgba(255,255,255,0.06), transparent 60%),
+                repeating-linear-gradient(45deg, rgba(0,0,0,0.03) 0 2px, transparent 2px 4px),
+                linear-gradient(180deg, #4a4a4a 0%, #2a2a2a 100%);
+            background-attachment: fixed;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 28px;
+            background: var(--felt);
+            background-image:
+                radial-gradient(circle at 30% 20%, rgba(255,255,255,0.08), transparent 50%),
+                radial-gradient(circle at 70% 80%, rgba(0,0,0,0.2), transparent 50%),
+                repeating-linear-gradient(45deg, rgba(0,0,0,0.05) 0 3px, transparent 3px 6px);
+            border-radius: 12px;
+            box-shadow:
+                inset 0 0 0 3px rgba(0,0,0,0.3),
+                inset 0 2px 0 rgba(255,255,255,0.15),
+                inset 0 -2px 0 rgba(0,0,0,0.4),
+                0 20px 50px rgba(0,0,0,0.6),
+                0 4px 12px rgba(0,0,0,0.4);
+            position: relative;
+        }
+
+        /* Stitching effect on felt */
+        .container::before {
+            content: "";
+            position: absolute;
+            top: 8px; left: 8px; right: 8px; bottom: 8px;
+            border: 2px dashed rgba(201, 169, 97, 0.35);
+            border-radius: 8px;
+            pointer-events: none;
+        }
+
+        /* ===== HEADER PLAQUE ===== */
+        header.hero {
+            background: linear-gradient(180deg, #f5f0e1 0%, #e8ddc4 50%, #d9ccae 100%);
+            border-radius: 10px;
+            padding: 32px 28px 26px;
+            text-align: center;
+            position: relative;
+            box-shadow:
+                inset 0 1px 0 rgba(255,255,255,0.9),
+                inset 0 -2px 0 rgba(0,0,0,0.15),
+                inset 0 0 30px rgba(138, 115, 56, 0.15),
+                0 8px 20px rgba(0,0,0,0.4),
+                0 2px 4px rgba(0,0,0,0.3);
+            margin-bottom: 30px;
+            border: 1px solid rgba(90, 58, 30, 0.2);
+        }
+
+        /* Corner screws */
+        .screw {
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background:
+                radial-gradient(circle at 35% 30%, #f0f0f0, #a8a8a8 45%, #6a6a6a 80%);
+            box-shadow:
+                inset 0 1px 1px rgba(255,255,255,0.8),
+                inset 0 -1px 2px rgba(0,0,0,0.4),
+                0 1px 2px rgba(0,0,0,0.4);
+            z-index: 5;
+        }
+        .screw::before {
+            content: "";
+            position: absolute;
+            top: 50%; left: 50%;
+            width: 8px; height: 2px;
+            background: linear-gradient(180deg, #4a4a4a, #2a2a2a);
+            transform: translate(-50%, -50%) rotate(45deg);
+            border-radius: 1px;
+            box-shadow: 0 1px 0 rgba(255,255,255,0.3);
+        }
+        .screw.tl { top: 8px; left: 8px; }
+        .screw.tr { top: 8px; right: 8px; }
+        .screw.bl { bottom: 8px; left: 8px; }
+        .screw.br { bottom: 8px; right: 8px; }
+
+        header.hero h1 {
+            font-family: Georgia, 'Times New Roman', serif;
+            font-size: clamp(1.8rem, 4.5vw, 2.8rem);
+            color: #3a2a15;
+            letter-spacing: 0.5px;
+            margin-bottom: 6px;
+            text-shadow:
+                0 1px 0 rgba(255,255,255,0.9),
+                0 -1px 0 rgba(0,0,0,0.15);
+        }
+
+        header.hero .subtitle {
+            font-size: 1.05rem;
+            color: var(--ink-soft);
+            font-style: italic;
+            text-shadow: 0 1px 0 rgba(255,255,255,0.7);
+        }
+
+        .hero-photo-frame {
+            display: inline-block;
+            padding: 10px;
+            background: linear-gradient(180deg, #8a5a30 0%, #6b4423 50%, #4a2f18 100%);
+            border-radius: 8px;
+            box-shadow:
+                inset 0 1px 0 rgba(255,255,255,0.3),
+                inset 0 -2px 0 rgba(0,0,0,0.4),
+                0 4px 10px rgba(0,0,0,0.4);
+            margin-bottom: 18px;
+            position: relative;
+        }
+        .hero-photo-frame::before {
+            content: "";
+            position: absolute;
+            inset: 6px;
+            border: 1px solid rgba(255,255,255,0.15);
+            border-radius: 4px;
+            pointer-events: none;
+        }
+        header.hero img {
+            width: 150px;
+            height: 150px;
+            border-radius: 4px;
+            object-fit: cover;
+            display: block;
+            box-shadow:
+                inset 0 0 8px rgba(0,0,0,0.5),
+                0 2px 4px rgba(0,0,0,0.5);
+            border: 1px solid rgba(0,0,0,0.3);
+        }
+
+        /* ===== SECTION ===== */
+        section {
+            background: linear-gradient(180deg, var(--paper) 0%, var(--paper-2) 100%);
+            border-radius: 10px;
+            padding: 26px 26px 24px;
+            margin-bottom: 24px;
+            position: relative;
+            box-shadow:
+                inset 0 1px 0 rgba(255,255,255,0.9),
+                inset 0 -2px 0 rgba(0,0,0,0.08),
+                0 4px 12px rgba(0,0,0,0.35),
+                0 1px 3px rgba(0,0,0,0.25);
+            border: 1px solid rgba(90, 58, 30, 0.15);
+        }
+
+        /* Section title bar (brass nameplate) */
+        .section-title {
+            display: inline-block;
+            font-family: Georgia, serif;
+            font-size: 1.15rem;
+            color: #4a3016;
+            background: linear-gradient(180deg, #e8c977 0%, #c9a961 45%, #a8873f 55%, #8a7338 100%);
+            padding: 6px 20px;
+            border-radius: 6px;
+            margin-bottom: 20px;
+            letter-spacing: 0.5px;
+            text-shadow: 0 1px 0 rgba(255,255,255,0.5);
+            box-shadow:
+                inset 0 1px 0 rgba(255,255,255,0.6),
+                inset 0 -1px 0 rgba(0,0,0,0.3),
+                0 2px 4px rgba(0,0,0,0.3);
+            border: 1px solid #6b5a2a;
+        }
+
+        /* ===== ABOUT ===== */
+        .about p {
+            font-size: 1.02rem;
+            color: var(--ink);
+            margin-bottom: 14px;
+            text-shadow: 0 1px 0 rgba(255,255,255,0.6);
+        }
+        .about p.lead {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #4a3016;
+            font-family: Georgia, serif;
+            font-style: italic;
+        }
+        .about .note {
+            background: linear-gradient(180deg, #fff9e6 0%, #f5ecd0 100%);
+            border: 1px solid rgba(138, 115, 56, 0.4);
+            border-radius: 6px;
+            padding: 14px 18px;
+            margin-top: 12px;
+            font-size: 0.96rem;
+            color: var(--ink-soft);
+            box-shadow:
+                inset 0 1px 2px rgba(0,0,0,0.08),
+                inset 0 -1px 0 rgba(255,255,255,0.8);
+            position: relative;
+            padding-left: 44px;
+        }
+        .about .note::before {
+            content: "📌";
+            position: absolute;
+            left: 14px;
+            top: 14px;
+            font-size: 18px;
+            filter: drop-shadow(0 2px 2px rgba(0,0,0,0.3));
+        }
+
+        /* ===== BIODATA ===== */
+        .bio-panel {
+            background: linear-gradient(180deg, #fbf7ec 0%, #efe6d2 100%);
+            border: 1px solid rgba(90, 58, 30, 0.2);
+            border-radius: 8px;
+            padding: 8px 22px;
+            box-shadow:
+                inset 0 2px 4px rgba(0,0,0,0.08),
+                inset 0 -1px 0 rgba(255,255,255,0.9);
+        }
+        .bio-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .bio-table tr {
+            border-bottom: 1px solid rgba(90, 58, 30, 0.12);
+        }
+        .bio-table tr:last-child { border-bottom: none; }
+        .bio-table td {
+            padding: 13px 6px;
+            vertical-align: top;
+            font-size: 1rem;
+            text-shadow: 0 1px 0 rgba(255,255,255,0.6);
+        }
+        .bio-table td:first-child {
+            font-weight: 700;
+            color: #4a3016;
+            width: 34%;
+            font-family: Georgia, serif;
+        }
+        .bio-table td:last-child { color: var(--ink); }
+
+        /* ===== SKILLS (LED indicators) ===== */
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            list-style: none;
+        }
+        .skills-list li {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 18px;
+            background: linear-gradient(180deg, #f0f0f0 0%, #d8d8d8 50%, #b8b8b8 100%);
+            border: 1px solid #8a8a8a;
+            border-radius: 22px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            color: #2a2a2a;
+            text-shadow: 0 1px 0 rgba(255,255,255,0.8);
+            box-shadow:
+                inset 0 1px 0 rgba(255,255,255,0.9),
+                inset 0 -2px 3px rgba(0,0,0,0.15),
+                0 2px 3px rgba(0,0,0,0.3);
+            position: relative;
+            cursor: default;
+            transition: transform 0.1s;
+        }
+        .skills-list li::before {
+            content: "";
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: radial-gradient(circle at 35% 30%, #a8f0b8, var(--green-led) 50%, #2a5a34 100%);
+            box-shadow:
+                inset 0 1px 1px rgba(255,255,255,0.6),
+                inset 0 -1px 2px rgba(0,0,0,0.4),
+                0 0 6px rgba(74, 157, 95, 0.7);
+            flex-shrink: 0;
+        }
+        .skills-list li:active {
+            transform: translateY(1px);
+            box-shadow:
+                inset 0 2px 3px rgba(0,0,0,0.25),
+                0 1px 1px rgba(0,0,0,0.3);
+        }
+
+        /* ===== TIMELINE ===== */
+        .item {
+            background: linear-gradient(180deg, #fffdf7 0%, #f2e9d6 100%);
+            border: 1px solid rgba(90, 58, 30, 0.25);
+            border-radius: 8px;
+            padding: 18px 22px;
+            margin-bottom: 14px;
+            box-shadow:
+                inset 0 1px 0 rgba(255,255,255,0.9),
+                inset 0 -1px 0 rgba(0,0,0,0.06),
+                0 2px 5px rgba(0,0,0,0.2);
+            position: relative;
+        }
+        .item h3 {
+            font-family: Georgia, serif;
+            font-size: 1.1rem;
+            color: #3a2a15;
+            margin-bottom: 4px;
+            text-shadow: 0 1px 0 rgba(255,255,255,0.7);
+        }
+        .item .date {
+            display: inline-block;
+            font-size: 0.82rem;
+            font-family: 'Lucida Grande', monospace;
+            color: #fff;
+            background: linear-gradient(180deg, #7a5230 0%, #5a3a1e 100%);
+            padding: 2px 12px;
+            border-radius: 12px;
+            margin-bottom: 8px;
+            text-shadow: 0 -1px 0 rgba(0,0,0,0.5);
+            box-shadow:
+                inset 0 1px 0 rgba(255,255,255,0.2),
+                0 1px 2px rgba(0,0,0,0.3);
+        }
+        .item p.desc {
+            font-size: 0.94rem;
+            color: var(--ink-soft);
+        }
+
+        /* ===== PROJECTS (wood shelf cards) ===== */
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 16px;
+        }
+        .project {
+            background:
+                linear-gradient(180deg, #fffdf7 0%, #f2e9d6 100%);
+            border: 1px solid rgba(90, 58, 30, 0.3);
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow:
+                inset 0 1px 0 rgba(255,255,255,0.9),
+                0 4px 8px rgba(0,0,0,0.25),
+                0 1px 2px rgba(0,0,0,0.2);
+            transition: transform 0.2s, box-shadow 0.2s;
+            position: relative;
+        }
+        .project:hover {
+            transform: translateY(-3px);
+            box-shadow:
+                inset 0 1px 0 rgba(255,255,255,0.9),
+                0 8px 16px rgba(0,0,0,0.35),
+                0 2px 4px rgba(0,0,0,0.25);
+        }
+        .project .tag {
+            display: inline-block;
+            font-size: 0.78rem;
+            font-weight: 700;
+            color: #fff;
+            background: linear-gradient(180deg, #d43b2c 0%, #a82a1e 100%);
+            padding: 3px 12px;
+            border-radius: 12px;
+            margin-bottom: 12px;
+            letter-spacing: 0.5px;
+            text-shadow: 0 -1px 0 rgba(0,0,0,0.4);
+            box-shadow:
+                inset 0 1px 0 rgba(255,255,255,0.3),
+                0 1px 2px rgba(0,0,0,0.3);
+        }
+        .project h3 {
+            font-family: Georgia, serif;
+            font-size: 1.08rem;
+            color: #3a2a15;
+            margin-bottom: 8px;
+            text-shadow: 0 1px 0 rgba(255,255,255,0.7);
+        }
+        .project p {
+            font-size: 0.9rem;
+            color: var(--ink-soft);
+            margin-bottom: 14px;
+        }
+        .project .meta {
+            font-size: 0.8rem;
+            color: #6b4423;
+            border-top: 1px solid rgba(90, 58, 30, 0.2);
+            padding-top: 10px;
+            display: flex;
+            justify-content: space-between;
+            font-weight: 600;
+        }
+
+        /* ===== CONTACT (physical buttons) ===== */
+        .contact-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+        .contact-links a {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 24px;
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: #2a2a2a;
+            text-decoration: none;
+            border-radius: 8px;
+            background: linear-gradient(180deg, #f5f5f5 0%, #e0e0e0 45%, #c8c8c8 55%, #a8a8a8 100%);
+            border: 1px solid #7a7a7a;
+            text-shadow: 0 1px 0 rgba(255,255,255,0.8);
+            box-shadow:
+                inset 0 1px 0 rgba(255,255,255,0.9),
+                inset 0 -2px 4px rgba(0,0,0,0.15),
+                0 3px 6px rgba(0,0,0,0.3),
+                0 1px 2px rgba(0,0,0,0.2);
+            transition: transform 0.08s, box-shadow 0.08s;
+            position: relative;
+        }
+        .contact-links a:hover {
+            background: linear-gradient(180deg, #fff8d8 0%, #ffe9a0 45%, #f5d878 55%, #e0c060 100%);
+            border-color: #a8873f;
+        }
+        .contact-links a:active {
+            transform: translateY(2px);
+            box-shadow:
+                inset 0 2px 4px rgba(0,0,0,0.3),
+                inset 0 -1px 0 rgba(255,255,255,0.5),
+                0 1px 2px rgba(0,0,0,0.2);
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            text-align: center;
+            padding: 22px 20px;
+            background: linear-gradient(180deg, #4a2f18 0%, #2a1a0a 100%);
+            border-radius: 10px;
+            color: #d9ccae;
+            font-size: 0.88rem;
+            box-shadow:
+                inset 0 1px 0 rgba(255,255,255,0.15),
+                inset 0 -2px 0 rgba(0,0,0,0.4),
+                0 4px 12px rgba(0,0,0,0.4);
+            border: 1px solid rgba(201, 169, 97, 0.2);
+            text-shadow: 0 -1px 0 rgba(0,0,0,0.5);
+            line-height: 1.8;
+            margin-top: 10px;
+        }
+        footer .name {
+            color: var(--brass);
+            font-family: Georgia, serif;
+            font-style: italic;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 640px) {
+            body { padding: 16px 10px; }
+            .container { padding: 18px; }
+            header.hero { padding: 26px 18px 22px; }
+            section { padding: 20px 18px; }
+            .bio-table td:first-child { width: 40%; font-size: 0.92rem; }
+            .bio-table td:last-child { font-size: 0.92rem; }
+            .screw { width: 12px; height: 12px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+
+        <!-- HEADER -->
+        <header class="hero">
+            <span class="screw tl"></span>
+            <span class="screw tr"></span>
+            <span class="screw bl"></span>
+            <span class="screw br"></span>
+
+            <div class="hero-photo-frame">
+                <img src="https://iili.io/nqXaK2s.th.jpg" alt="Foto Profil Iqbal Anggito">
+            </div>
+            <h1>IQBAL ANGGITO</h1>
+            <p class="subtitle">sering tidur</p>
+        </header>
+
+        <!-- 01 / TENTANG -->
+        <section id="tentang">
+            <h2 class="section-title">Tentang Saya</h2>
+            <div class="about">
+                <p class="lead">saya suka mancing</p>
+                <p>
+                    Menikmati waktu tenang di tepi air, sambil sesekali menyusun
+                    baris kode dan merapikan tampilan web.
+                </p>
+                <div class="note">
+                    Terima kasih sudah mampir ke halaman portofolio saya.
+                </div>
+            </div>
+        </section>
+
+        <!-- 02 / DATA DIRI -->
+        <section id="biodata">
+            <h2 class="section-title">Data Diri</h2>
+            <div class="bio-panel">
+                <table class="bio-table">
+                    <tr>
+                        <td>Nama Lengkap</td>
+                        <td>: IQBAL ANGGITO</td>
+                    </tr>
+                    <tr>
+                        <td>Tempat, Tgl Lahir</td>
+                        <td>: sukamaju, 29-09-2008</td>
+                    </tr>
+                    <tr>
+                        <td>Jenis Kelamin</td>
+                        <td>: Laki-laki</td>
+                    </tr>
+                    <tr>
+                        <td>Alamat</td>
+                        <td>: lampung, Indonesia</td>
+                    </tr>
+                    <tr>
+                        <td>Email</td>
+                        <td>: emailanda@gmail.com</td>
+                    </tr>
+                </table>
+            </div>
+        </section>
+
+        <!-- 03 / KEAHLIAN -->
+        <section id="keahlian">
+            <h2 class="section-title">Keahlian</h2>
+            <ul class="skills-list">
+                <li>HTML &amp; CSS</li>
+                <li>JavaScript</li>
+                <li>Microsoft Office</li>
+                <li>Desain Grafis</li>
+                <li>Komunikasi</li>
+            </ul>
+        </section>
+
+        <!-- 04 / PENDIDIKAN -->
+        <section id="pendidikan">
+            <h2 class="section-title">Riwayat Pendidikan</h2>
+            <div class="item">
+                <span class="date">2030 — 2034</span>
+                <h3>S3 — Jurusan / mancing</h3>
+                <p class="desc">Nama Universitas</p>
+            </div>
+            <div class="item">
+                <span class="date">2017 — 2020</span>
+                <h3>SMA / SMK — Jurusan</h3>
+                <p class="desc">Nama Sekolah</p>
+            </div>
+        </section>
+
+        <!-- 05 / PENGALAMAN -->
+        <section id="proyek">
+            <h2 class="section-title">Pengalaman / Proyek</h2>
+            <div class="projects">
+                <div class="project">
+                    <span class="tag">WEB DESIGN</span>
+                    <h3>Portofolio Pribadi</h3>
+                    <p>Merancang dan membangun situs portofolio pribadi dengan pendekatan desain yang rapi.</p>
+                    <div class="meta">
+                        <span>2026</span>
+                        <span>HTML / CSS</span>
+                    </div>
+                </div>
+                <div class="project">
+                    <span class="tag">UI LAYOUT</span>
+                    <h3>Landing Page Produk</h3>
+                    <p>Menyusun struktur landing page dengan hierarki visual yang jelas dan navigasi sederhana.</p>
+                    <div class="meta">
+                        <span>2025</span>
+                        <span>Design</span>
+                    </div>
+                </div>
+                <div class="project">
+                    <span class="tag">ORGANISASI</span>
+                    <h3>Divisi Media</h3>
+                    <p>Membantu produksi konten visual dan dokumentasi kegiatan sekolah/organisasi.</p>
+                    <div class="meta">
+                        <span>2024</span>
+                        <span>Teamwork</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 06 / KONTAK -->
+        <section id="kontak">
+            <h2 class="section-title">Hubungi Saya</h2>
+            <div class="contact-links">
+                <a href="mailto:emailanda@gmail.com" target="_blank">✉ Email</a>
+                <a href="https://linkedin.com/in/username" target="_blank">💼 LinkedIn</a>
+                <a href="https://github.com/username" target="_blank">🐙 GitHub</a>
+                <a href="https://instagram.com/username" target="_blank">📷 Instagram</a>
+            </div>
+        </section>
+
+        <!-- FOOTER -->
+        <footer>
+            <div>&copy; 2026 <span class="name">Iqbal Anggito</span>. All rights reserved.</div>
+            <div>Crafted with care in Lampung, Indonesia.</div>
+        </footer>
+
+    </div>
+
+</body>
+  </html>
